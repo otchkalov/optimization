@@ -42,14 +42,16 @@ path = [x_0,]
 print(f"{0:4d}  x_1 = {x_0[0]:12.5g}  x_2 = {x_0[1]:12.5g}")
 for i in range(10):
     
-    x_1 = gs.gold_section(x_0.copy(), 0, func, eps)
+    dirVec = [1, 0]
+    x_1 = gs.gold_section_d(x_0.copy(), dirVec, func, eps)
     print(f"{i+1:4d}  x_1 = {x_1[0]:12.5g}  x_2 = {x_1[1]:12.5g}")
     path.append(x_1)
     if np.abs(x_1[0] - x_0[0]) < eps:
         x_opt = x_1
         break
     
-    x_2 = gs.gold_section(x_1.copy(), 1, func, eps)
+    dirVec = [0, 1]
+    x_2 = gs.gold_section_d(x_1.copy(), dirVec, func, eps)
     print(f"{i+1:3d}+  x_1 = {x_2[0]:12.5g}  x_2 = {x_2[1]:12.5g}")
     path.append(x_2)
     if np.abs(x_2[1] - x_1[1]) < eps:
