@@ -48,7 +48,7 @@ def agradient(x):
     return grad
 
 
-# Simple gradient descent
+# Gradient descent combined with gold section search
 x_0 = [-1, -3]
 eps = 1.e-3
 path = [x_0,]
@@ -56,10 +56,13 @@ step = 0.1
 print(f"{0:4d}  x_1 = {x_0[0]:12.5g}  x_2 = {x_0[1]:12.5g}")
 for i in range(100):
     agrad = agradient(x_0)
-    x_1 = [x_0[0] + step*agrad[0], x_0[1] + step*agrad[1]]
+    abs_grad = np.linalg.norm(agrad, 2)
+    dirVec = [ agrad[0]/abs_grad, agrad[1]/abs_grad]
+    x_1 = gs.gold_section_d(x_0, dirVec, func, eps)
     print(f"{i+1:4d}  x_1 = {x_1[0]:12.5g}  x_2 = {x_1[1]:12.5g}")
     path.append(x_1)
-    if step*np.linalg.norm(agrad,2) < eps:
+    # Scalar product of (xRight - xLeft) on dirVec of length 1 results interval length
+    if (x_1[0] - x_0[0]) * dirVec[0] + (x_1[1] - x_0[1]) * dirVec[1] < eps:
         x_opt = x_1
         break
     else:
