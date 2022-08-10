@@ -5,13 +5,18 @@ import svenn
 
 
 def func(x):
+    global numOfCalc
     fun = (x-1)**2
+    numOfCalc = numOfCalc + 1
     return fun
 
 
-svenn_int = False
+svenn_int = True
 plot_graph = False
 
+eps = 1.e-4
+maxIter = 20
+numOfCalc = 0
 
 if svenn_int:
     # Apply Svenn algorithm for interval search
@@ -25,8 +30,6 @@ else:
     
 if xLeft == xRight:
     exit()
-
-eps = 1.e-2
 
 if plot_graph:
     #Generate point for objective function graph      
@@ -50,7 +53,7 @@ if plot_graph:
     plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2)
     time.sleep(1)
 
-for i in range(20):
+for i in range(maxIter):
     if (f1 < f2):
         # exclude right interval
         xRight = x2
@@ -68,12 +71,14 @@ for i in range(20):
         x2 = xLeft + 0.618*length
         f2 = func(x2)
 
-    print(f'{i:3d}  {x1:12.5f}  {x2:12.5f}  {f1:12.5f}  {f2:12.5f}  {length:12.5f}')
+    print(f'{i+1:3d}  {x1:12.5f}  {x2:12.5f}  {f1:12.5f}  {f2:12.5f}  {length:12.5f}')
     if plot_graph:
         plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2)
         time.sleep(1)
     if length < eps:
         break
-
-if (i == 19):
-    print('Warning: Required accuracy cannot be reached in 20 steps')
+    if i == maxIter - 1:
+        print(f'Warning: Required accuracy cannot be reached in {maxIter} steps')
+    
+print ("\n ---------------------------------------------------------------------------------------\n")
+print (f"xOpt = {x1:9.5f}   Number of OF calculations: {numOfCalc}")

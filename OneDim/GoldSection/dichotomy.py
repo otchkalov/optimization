@@ -4,7 +4,9 @@ import time
 
 
 def func(x):
+    global numOfCalc
     fun = (x-1)**2
+    numOfCalc = numOfCalc + 1
     return fun
 
 
@@ -14,6 +16,8 @@ xLeft = 0.5
 xRight = 2.0
 
 eps = 1.e-5
+numOfCalc = 0
+maxIter = 20
 
 if plot_graph:
     # Generate point for objective function graph
@@ -39,7 +43,7 @@ if plot_graph:
     plotter.plot_graph3(x, y, func, xLeft, xRight, x1, x2, xm)
     time.sleep(1)
 
-for i in range(20):
+for i in range(maxIter):
     if (f1 < fm) & (fm < f2):
         # exclude right half of interval
         xRight = xm
@@ -68,5 +72,8 @@ for i in range(20):
     if length < eps:
         break
 
-    if (i == 19):
-        print('Warning: Required accuracy cannot be reached in 20 steps')
+    if i == maxIter - 1:
+        print(f'Warning: Required accuracy cannot be reached in {maxIter} steps')
+    
+print ("\n ---------------------------------------------------------------------------------------\n")
+print (f"xOpt = {x1:9.5f}   Number of OF calculations: {numOfCalc}")
