@@ -12,7 +12,7 @@ def func(x):
 
 
 svenn_int = True
-plot_graph = False
+plot_graph = True
 
 eps = 1.e-4
 maxIter = 20
@@ -32,7 +32,7 @@ if xLeft == xRight:
     exit()
 
 if plot_graph:
-    #Generate point for objective function graph      
+    # Generate point for objective function graph
     x = np.linspace(xLeft, xRight, 100)
     y = func(x)
 

@@ -3,14 +3,14 @@ import plotter
 import time
 
 
-def func(x):
+def func(arg):
     global numOfCalc
-    fun = (x-1)**2
+    fun = (arg - 1)**2
     numOfCalc = numOfCalc + 1
     return fun
 
 
-plot_graph = False
+plot_graph = True
 
 xLeft = 0.5
 xRight = 2.0
@@ -40,7 +40,7 @@ f2 = func(x2)
 fm = func(xm)
 print(f'{0:3d}  {x1:12.5f}  {xm:12.5f}  {x2:12.5f}  {f1:12.5f}  {fm:12.5f}  {f2:12.5f}  {length:12.5f}')
 if plot_graph:
-    plotter.plot_graph3(x, y, func, xLeft, xRight, x1, x2, xm)
+    plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2, xm)
     time.sleep(1)
 
 for i in range(maxIter):
@@ -67,7 +67,7 @@ for i in range(maxIter):
 
     print(f'{i+1:3d}  {x1:12.5f}  {xm:12.5f}  {x2:12.5f}  {f1:12.5f}  {fm:12.5f}  {f2:12.5f}  {length:12.5f}')
     if plot_graph:
-        plotter.plot_graph3(x, y, func, xLeft, xRight, x1, x2, xm)
+        plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2, xm)
         time.sleep(1)
     if length < eps:
         break
@@ -75,5 +75,5 @@ for i in range(maxIter):
     if i == maxIter - 1:
         print(f'Warning: Required accuracy cannot be reached in {maxIter} steps')
     
-print ("\n ---------------------------------------------------------------------------------------\n")
-print (f"xOpt = {x1:9.5f}   Number of OF calculations: {numOfCalc}")
+print("\n ---------------------------------------------------------------------------------------\n")
+print(f"xOpt = {x1:9.5f}   Number of OF calculations: {numOfCalc}")
