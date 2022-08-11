@@ -1,5 +1,5 @@
 """
-First realization of simplex search strategy
+Nedler Mid modification of simplex search strategy
 """
 import numpy as np
 import plotter
@@ -9,12 +9,12 @@ def  func(x):
 # Calculate object function value
 
     # Simple quadratic function
-    # fun = (x[0] - 1)**2 + (x[1] - 1)**2 - x[0]*x[1]
+    fun = (x[0] - 1)**2 + (x[1] - 1)**2 - x[0]*x[1]
     # fun = (x[0] - 1)**2 + (x[1] - 1)**2
     # fun = fun + np.random.uniform(-1, 1)
 
     # Himmelblau function
-    fun = (x[0]**2 + x[1] - 11)**2 + (x[0] + x[1]**2 - 7)**2
+    # fun = (x[0]**2 + x[1] - 11)**2 + (x[0] + x[1]**2 - 7)**2
 
     # Rastrigin function
     # fun = x[0]**2 + x[1]**2 - 10*(2 - np.cos( 2 * np.pi * x[0]) - np.cos( 2 * np.pi * x[1]))
@@ -42,11 +42,17 @@ def set_limits(func_name):
 
 
 # Simplex search
-x0 = [0, 0.5]    # initial point
+
+
+def mirror(point, center, theta):
+    return [point[0] + (1+theta)*(center[0] - point[0]), \
+            point[1] + (1+theta)*(center[1] - point[1])]
+
+
+x0 = [-3, -3]    # Initial point
 a = 0.5
-EPS = 1.e-1
+EPS = 1.e-5
 sq3 = np.sqrt(3)
-mu = 0.5
 
 # Build an initial simplex
 simplex = [ [x0[0], x0[1] + a*sq3/3], [x0[0] + a/2, x0[1] - a*sq3/6], [x0[0] - a/2, x0[1] - a*sq3/6] ] 
@@ -54,10 +60,8 @@ fun = [ func(simplex[0]), func(simplex[1]), func(simplex[2]) ]
 # Collect simplexes for plot
 simplex_set = [ simplex.copy(), ]
 
-nStab = [0, 0, 0]
-sMax = 0
+
 nOrder = [0, 1, 2]
-sPrev = 0
 
 for iter in range(100):
     # Define an order of simplex nodes
@@ -74,46 +78,31 @@ for iter in range(100):
     p1 = nOrder[1]
     p2 = nOrder[2]
     
-    if sMax == sPrev:
-        # If the same vertex should be mirrored once again, choose the next vertex instead
-        nOrder[1], nOrder[0] = nOrder[0], nOrder[1]
-        p1 = nOrder[1]
-        sMax = nOrder[0]
-
-    nStab[sMax] = 0 
-    nStab[p1] = nStab[p1] + 1
-    nStab[p2] = nStab[p2] + 1
     centralPoint = [ (simplex[p1][0] + simplex[p2][0]) / 2, (simplex[p1][1] + simplex[p2][1]) / 2 ]
-    simplex[sMax] = [ 2*centralPoint[0] - simplex[sMax][0], 2*centralPoint[1] - simplex[sMax][1] ]
-    fun[sMax] = func(simplex[sMax])
-    sPrev = sMax
+    newPoint = mirror(simplex[sMax], centralPoint, 1)
+    newFun = func(newPoint)
+    if newFun < fun[nOrder[2]]:
+        simplex[sMax] = mirror(simplex[sMax], centralPoint, 2)
+        fun[sMax] = func(simplex[sMax])
+    elif newFun > fun[nOrder[0]]:
+        simplex[sMax] = mirror(simplex[sMax], centralPoint, -0.5)
+        fun[sMax] = func(simplex[sMax])
+    elif newFun > fun[nOrder[1]]:
+        simplex[sMax] = mirror(simplex[sMax], centralPoint, 0.5)
+        fun[sMax] = func(simplex[sMax])
+    else:
+        simplex[sMax] = newPoint
+        fun[sMax] = newFun
 
     simplex_set.append(simplex.copy())
     
-    # Scale simplex if necessary
-    if nStab[0] > 3:
-        simplex[1] = [ simplex[0][0] + mu*(simplex[1][0]-simplex[0][0]), simplex[0][1] + mu*(simplex[1][1]-simplex[0][1]) ]
-        simplex[2] = [ simplex[0][0] + mu*(simplex[2][0]-simplex[0][0]), simplex[0][1] + mu*(simplex[2][1]-simplex[0][1]) ]
-        nStab = [0, 0, 0]
-        a = mu*a
-    elif nStab[1] > 3:
-        simplex[2] = [ simplex[1][0] + mu*(simplex[2][0]-simplex[1][0]), simplex[1][1] + mu*(simplex[2][1]-simplex[1][1]) ]
-        simplex[0] = [ simplex[1][0] + mu*(simplex[2][0]-simplex[0][0]), simplex[1][1] + mu*(simplex[0][1]-simplex[1][1]) ]
-        nStab = [0, 0, 0]
-        a = mu*a
-    elif nStab[2] > 3:
-        simplex[0] = [ simplex[2][0] + mu*(simplex[0][0]-simplex[2][0]), simplex[2][1] + mu*(simplex[0][1]-simplex[2][1]) ]
-        simplex[1] = [ simplex[2][0] + mu*(simplex[1][0]-simplex[2][0]), simplex[2][1] + mu*(simplex[1][1]-simplex[2][1]) ]
-        nStab = [0, 0, 0]
-        a = mu*a
-    # Finalization criteria
-    if a < EPS:
+    if max(fun)-min(fun) < EPS:
         break
 
 
 # Objective function and minimization path plot
 nPoints = 100
-x1Lim, x2Lim = set_limits("Himmelblau")
+x1Lim, x2Lim = set_limits("quadratic")
 x1list = np.linspace(x1Lim[0], x1Lim[1], nPoints)
 x2list = np.linspace(x2Lim[0], x2Lim[1], nPoints)
 X1, X2 = np.meshgrid(x1list, x2list)
@@ -122,3 +111,4 @@ ObjFun = func([X1, X2])
 print(f"Optimal point [{simplex[0][0]:9.5f}, {simplex[0][1]:9.5f}]")
 
 plotter.plot_graph(X1, X2, ObjFun, simplex_set)
+

@@ -18,10 +18,10 @@ def plot_graph(x1, x2, objFun, simplex_set):
     ax.set_ylabel('x_2')
     for i in range(len(simplex_set)):
         xp, yp = [ [simplex_set[i][0][0], simplex_set[i][1][0]], [simplex_set[i][0][1], simplex_set[i][1][1]] ]
-        plt.plot(xp, yp, marker = '.')
+        plt.plot(xp, yp, 'b-', marker = '.', linewidth = 0.5)
         xp, yp = [ [simplex_set[i][1][0], simplex_set[i][2][0]], [simplex_set[i][1][1], simplex_set[i][2][1]] ]
-        plt.plot(xp, yp, marker = '.')
+        plt.plot(xp, yp, 'b-', marker = '.', linewidth = 0.5)
         xp, yp = [ [simplex_set[i][2][0], simplex_set[i][0][0]], [simplex_set[i][2][1], simplex_set[i][0][1]] ]
-        plt.plot(xp, yp, marker = '.')
+        plt.plot(xp, yp, 'b-', marker = '.', linewidth = 0.5)
     plt.show()
     
