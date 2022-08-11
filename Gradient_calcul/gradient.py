@@ -1,11 +1,12 @@
 import numpy as np
 import plotter
 
-def  func(x):
-# Calculate object function value
+
+def func(x):
+    # Calculate object function value
 
     # Simple quadratic function
-    fun = (x[0] - 1)**2 + (x[1] - 1)**2 - x[0]*x[1]
+    fun = (x[0] - 1) ** 2 + (x[1] - 1) ** 2 - x[0] * x[1]
     # fun = fun + np.random.uniform(-1, 1)
     x1Lim = [-4, 4]
     x2Lim = [-4, 4]
@@ -39,17 +40,17 @@ def agradient(x):
 
     h = 1.e-1
     grad = [0, 0]
-    doubleH = 2*h
+    double_h = 2 * h
 
-    grad[0] = -(func( [x[0] + h, x[1]])[0] - func( [x[0] - h, x[1]])[0]) / doubleH
-    grad[1] = -(func( [x[0], x[1] + h])[0] - func( [x[0], x[1] - h])[0]) / doubleH
+    grad[0] = -(func([x[0] + h, x[1]])[0] - func([x[0] - h, x[1]])[0]) / double_h
+    grad[1] = -(func([x[0], x[1] + h])[0] - func([x[0], x[1] - h])[0]) / double_h
 
     return grad
 
 
 # Objective function gradient plot
 nPoints = 20
-ObjFun, x1Lim, x2Lim = func([0, 0]) # Just to get limits 
+ObjFun, x1Lim, x2Lim = func([0, 0])  # Just to get limits
 x1list = np.linspace(x1Lim[0], x1Lim[1], nPoints)
 x2list = np.linspace(x2Lim[0], x2Lim[1], nPoints)
 X1, X2 = np.meshgrid(x1list, x2list)
