@@ -14,9 +14,9 @@ def func(x):
 
 
 EPS = 1.e-3
-x0 = [-1, 0]
-d1 = [1, 0]
-d2 = [0, 1]
+x0 = np.array([-1, 0])
+d1 = np.array([1, 0])
+d2 = np.array([0, 1])
 path = [x0,]
 x1 = gs.gold_section_d (x0, d1, func, EPS)
 path.append(x1)
@@ -24,15 +24,12 @@ x2 = gs.gold_section_d (x1, d2, func, EPS)
 path.append(x2)
 x3 = gs.gold_section_d (x2, d1, func, EPS)
 path.append(x3)
-
-gradNew = [x3[0] - x1[0], x3[1] - x1[1]]
-modGradNew = np.sqrt(gradNew[0]**2 + gradNew[1]**2)
-dirGrad = [gradNew[0]/modGradNew, gradNew[1]/modGradNew]
+gradNew = x3 - x1
+dirGrad = gradNew/np.linalg.norm(gradNew, 2)
 path.append(x1)
-
 xOpt = gs.gold_section_d (x3, dirGrad, func, EPS)
 path.append(xOpt)
-print(xOpt)
+print(f"Optimal point: [{xOpt[0]:9.5f}, {xOpt[1]:9.5f}]")
 
 # Objective function gradient plot
 nPoints = 100
