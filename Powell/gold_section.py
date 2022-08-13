@@ -1,5 +1,11 @@
+"""
+Gold section search with Svenn algorithm to search for interval of indefinity
+in given direction for 2-variable function
+"""
+
 import numpy as np
-# Gold section search in given direction
+
+
 # Input: starting point, direction orth, object functuion procedure and accuracy
 def gold_section_d(x0, dirVec, func, eps = 1.e-5):
 
@@ -40,8 +46,6 @@ def gold_section_d(x0, dirVec, func, eps = 1.e-5):
     # Return left margin as an optimal point
     return xLeft 
 
-# Svenn algorithm to search for interval of indefinity
-# in given direction for 2-variable function
 
 # Input: starting point, direction vector, object functuion procedure and initial step
 def svenn_d(x0, dirVec, func, step):
