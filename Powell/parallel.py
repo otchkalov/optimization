@@ -5,6 +5,7 @@ import numpy as np
 import gold_section as gs
 import plotter
 
+
 def func(x):
     # Calculate object function value
     of = (x[0] - 1) ** 2 + (x[1] - 1) ** 2 - x[0] * x[1]
@@ -13,14 +14,14 @@ def func(x):
     return of
 
 
-EPS = 1.e-3;
+EPS = 1.e-3
 a1 = np.array([0, 1])
 a2 = np.array([0, 0])
 grad = np.array([1, 0])
-m1 = gs.gold_section_d (a1, grad, func, EPS)
-m2 = gs.gold_section_d (a2, grad, func, EPS)
-dirNew = (m2 - m1)/np.linalg.norm(m2 - m1, 2)
-xOpt = gs.gold_section_d (m1, dirNew, func, EPS);
+m1 = gs.gold_section_d(a1, grad, func, EPS)
+m2 = gs.gold_section_d(a2, grad, func, EPS)
+dirNew = (m2 - m1) / np.linalg.norm(m2 - m1, 2)
+xOpt = gs.gold_section_d(m1, dirNew, func, EPS);
 
 print(f"Optimal point: [{xOpt[0]:9.5f}, {xOpt[1]:9.5f}]")
 
