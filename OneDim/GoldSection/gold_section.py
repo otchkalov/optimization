@@ -11,10 +11,10 @@ def func(x):
     return fun
 
 
-svenn_int = True
+svenn_int = False
 plot_graph = True
 
-eps = 1.e-4
+eps = 1.e-1
 maxIter = 20
 numOfCalc = 0
 
@@ -25,7 +25,7 @@ if svenn_int:
     xLeft, xRight = svenn.svenn(func, x0, step)
 else:
     # Set interval limits manually
-    xLeft  = 0.5
+    xLeft  = 0.0
     xRight = 2.0
     
 if xLeft == xRight:
@@ -54,7 +54,7 @@ if plot_graph:
     time.sleep(1)
 
 for i in range(maxIter):
-    if (f1 < f2):
+    if f1 < f2:
         # exclude right interval
         xRight = x2
         length = xRight - xLeft
@@ -62,13 +62,22 @@ for i in range(maxIter):
         f2 = f1
         x1 = xLeft + 0.382*length
         f1 = func(x1)
-    else:
+    elif f1 > f2:
         # exclude left interval
         xLeft = x1
         length = xRight - xLeft
         x1 = x2
         f1 = f2
         x2 = xLeft + 0.618*length
+        f2 = func(x2)
+    else:
+        # exclude left and right intervals
+        xLeft = x1
+        xRight = x2
+        length = xRight - xLeft
+        x1 = xLeft + 0.382*length    
+        x2 = xLeft + 0.618*length
+        f1 = func(x1)
         f2 = func(x2)
 
     print(f'{i+1:3d}  {x1:12.5f}  {x2:12.5f}  {f1:12.5f}  {f2:12.5f}  {length:12.5f}')
