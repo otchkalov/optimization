@@ -61,7 +61,6 @@ x2list = np.linspace(x2Lim[0], x2Lim[1], nPoints)
 X1, X2 = np.meshgrid(x1list, x2list)
 ObjFun, x1Lim, x2Lim, levels = func([X1, X2])
 gradOf = agradient([X1, X2])
-print(ObjFun)
 
 # plotter.plot_graph(X1, X2, ObjFun, levels)
 plotter.vector_plot(X1, X2, ObjFun, gradOf, levels)

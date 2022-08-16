@@ -29,6 +29,9 @@ dirGrad = gradNew/np.linalg.norm(gradNew, 2)
 path.append(x1)
 xOpt = gs.gold_section_d (x3, dirGrad, func, EPS)
 path.append(xOpt)
+print(x1, func(x1))
+print(x2, func(x2))
+print(x3, func(x3))
 print(f"Optimal point: [{xOpt[0]:9.5f}, {xOpt[1]:9.5f}]")
 
 # Objective function gradient plot

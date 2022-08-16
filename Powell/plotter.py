@@ -11,7 +11,9 @@ def plot_graph(x1, x2, objFun, path):
     clear_output(wait=True)
 
     fig,ax=plt.subplots(1,1)
-    cp = ax.contour(x1, x2, objFun)
+    # cp = ax.contour(x1, x2, objFun)
+    # Levels for quadratic function
+    cp = ax.contour(x1, x2, objFun, [-1.95, -1.8, -1.2, 1.0, 8, 16, 24, 32, 40, 48, 56])
     fig.colorbar(cp) # Add a colorbar to a plot
     ax.set_title('Object Function Contour Plot')
     ax.set_xlabel('x_1')
