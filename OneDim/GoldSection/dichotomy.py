@@ -10,7 +10,7 @@ def func(arg):
     return fun
 
 
-plot_graph = True
+plot_graph = False
 
 xLeft = 0.5
 xRight = 2.0

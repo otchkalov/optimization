@@ -25,7 +25,7 @@ if svenn_int:
     xLeft, xRight = svenn.svenn(func, x0, step)
 else:
     # Set interval limits manually
-    xLeft  = 0.0
+    xLeft = 0.5
     xRight = 2.0
     
 if xLeft == xRight:
