@@ -3,13 +3,11 @@
 """
 
 import matplotlib.pyplot as plt
-from IPython.display import clear_output
 
 
 # Plot the objective function
 def plot_graph(x, y, func, xl, xr, x1, x2, xm=31415):
-    clear_output(wait=True)
-    
+
     # plot function graph
     plt.plot(x, y)
     plt.plot([xl, xr], [0, 0], 'k')
