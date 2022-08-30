@@ -4,8 +4,8 @@ import numpy as np
 
 def func(x):
     # fun = (x - 1)**2  # [0.0; 2.0]
-    fun = x**2 * (x**2 - 4) + 6   # [0.0; 2.0] then shift 0.0 to 0.5, 1.0
-    # fun = -np.cos(3*x)  # [1.5; 2.5]
+    # fun = x**2 * (x**2 - 4) + 6   # [0.0; 2.0] then shift 0.0 to 0.5, 1.0
+    fun = -np.cos(3*x)  # [1.5; 2.5]
     # fun = 2 * x**2 + 16.0 / x   # [0.5; 2.5]
     return fun
 

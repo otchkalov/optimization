@@ -11,18 +11,20 @@ def func(x):
     return fun
 
 
-svenn_int = False
-plot_graph = True
+svenn_int = True
+plot_graph = False
 
-eps = 1.e-1
+eps = 1.e-5
 maxIter = 20
 numOfCalc = 0
 
 if svenn_int:
     # Apply Svenn algorithm for interval search
     x0 = 0.5
-    step = 0.1
+    step = 0.01
     xLeft, xRight = svenn.svenn(func, x0, step)
+    print(f'Number of OF calculations for DSK {numOfCalc:3d}')
+    numOfCalc = 0
 else:
     # Set interval limits manually
     xLeft = 0.5
@@ -90,4 +92,4 @@ for i in range(maxIter):
         print(f'Warning: Required accuracy cannot be reached in {maxIter} steps')
     
 print ("\n ---------------------------------------------------------------------------------------\n")
-print (f"xOpt = {x1:9.5f}   Number of OF calculations: {numOfCalc}")
+print (f"xOpt = {x1:9.5f}   Number of OF calculations for gold section: {numOfCalc}")

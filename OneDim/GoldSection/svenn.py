@@ -1,4 +1,4 @@
-# Svenn algorithm to search for interval of inderinite
+# Svenn algorithm to search for interval of indefinite
 
 # Input: starting point and initial step
 def svenn(func, x0, step):
@@ -8,11 +8,11 @@ def svenn(func, x0, step):
     f1 = func(x1)
     f2 = func(x2)
     if (f1 > f0) & (f2 > f0):
-        xLeft = x1
-        xRight = x2
-        return xLeft, xRight
+        x_left = x1
+        x_right = x2
+        return x_left, x_right
 
-    elif (f1<f0) & (f2 < f0):
+    elif (f1 < f0) & (f2 < f0):
         print('Incorrect initial value. Function is not unimodal on the interval')
         return x0, x0
     
@@ -35,18 +35,18 @@ def svenn(func, x0, step):
             # make half-step back
             x3 = x2 - step/2
             f3 = func(x3)
-            # exclude wrost interval
+            # exclude worst interval
             if f1 > f3:
-                xLeft = x1
-                xRight = x2
+                x_left = x1
+                x_right = x2
             else:
-                xLeft = x0
-                xRight = x3
-            if xLeft > xRight:
-                buf = xLeft
-                xLeft = xRight
-                xRight = buf
-            return xLeft, xRight
+                x_left = x0
+                x_right = x3
+            if x_left > x_right:
+                buf = x_left
+                x_left, x_right = x_right, x_left
+            print(f'DSK: found ({x_left:8.4f}, {x_right:8.4f}) interval in {i:2d} steps')
+            return x_left, x_right
 
     print('Specified initial point is too far from minimum')
     return x0, x0
