@@ -6,11 +6,11 @@ def func(x):
     # Calculate object function value
 
     # Simple quadratic function
-    # fun = (x[0] - 1) ** 2 + (x[1] - 1) ** 2 - x[0] * x[1]
-    # fun = fun + np.random.uniform(-1, 1)
-    # x1Lim = [-4, 4]
-    # x2Lim = [-4, 4]
-    # levels = [-1.9, 0, 8, 16, 24, 32, 40, 48, 56]
+    fun = (x[0] - 1) ** 2 + (x[1] - 1) ** 2 - x[0] * x[1]
+    # fun = fun + np.random.uniform(-0.1, 0.1)
+    x1Lim = [-4, 4]
+    x2Lim = [-4, 4]
+    levels = [-1.9, 0, 8, 16, 24, 32, 40, 48, 56]
 
     # Himmelblau function
     # fun = (x[0]**2 + x[1] - 11)**2 + (x[0] + x[1]**2 - 7)**2
@@ -19,10 +19,10 @@ def func(x):
     # levels = [1.0, 16, 32, 48, 96, 200]
 
     # Rastrigin function
-    fun = x[0]**2 + x[1]**2 - 10*(2 - np.cos( 2 * np.pi * x[0]) - np.cos( 2 * np.pi * x[1]))
-    x1Lim = [-5, 5]
-    x2Lim = [-5, 5]
-    levels = [0.01, 0.5, 10., 20., 30., 40]
+    # fun = x[0]**2 + x[1]**2 - 10*(2 - np.cos( 2 * np.pi * x[0]) - np.cos( 2 * np.pi * x[1]))
+    # x1Lim = [-5, 5]
+    # x2Lim = [-5, 5]
+    # levels = [0.01, 0.5, 10., 20., 30., 40]
 
     # Rosenbrock function
     # fun = 100*(x[1] - x[0]**2)**2 + (1 - x[0])**2
@@ -54,7 +54,7 @@ def agradient(x):
 
 
 # Objective function gradient plot
-nPoints = 200
+nPoints = 20
 ObjFun, x1Lim, x2Lim, levels = func([0, 0])  # Just to get limits
 x1list = np.linspace(x1Lim[0], x1Lim[1], nPoints)
 x2list = np.linspace(x2Lim[0], x2Lim[1], nPoints)

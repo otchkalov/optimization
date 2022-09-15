@@ -6,15 +6,16 @@ import svenn
 
 def func(x):
     global numOfCalc
-    fun = (x-1)**2
+    fun = (x-1.1)*x**2 + 3.4
+    # fun = (x - 4.2) * (x + 2.2) - 2.5
     numOfCalc = numOfCalc + 1
     return fun
 
 
-svenn_int = True
+svenn_int = False
 plot_graph = False
 
-eps = 1.e-5
+eps = 1.e-1
 maxIter = 20
 numOfCalc = 0
 
@@ -27,7 +28,7 @@ if svenn_int:
     numOfCalc = 0
 else:
     # Set interval limits manually
-    xLeft = 0.5
+    xLeft = 0.
     xRight = 2.0
     
 if xLeft == xRight:

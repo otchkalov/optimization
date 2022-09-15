@@ -34,7 +34,7 @@ def func(x, ofname=" "):
 
 def set_limits(func_name):
     switcher = {
-        "quadratic": [[-4, 4], [-4, 4]],
+        "quadratic": [[-3, 4], [-3, 5]],
         "Himmelblau": [[-5, 5], [-5, 5]],
         "Rasstrigin": [[-1, 1], [-1, 1]],
         "Rosenbrock": [[-2, 2], [-1, 3]],

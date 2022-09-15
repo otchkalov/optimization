@@ -7,7 +7,7 @@ import of
 
 # Simplex search
 ofname = "quadratic"
-x0 = [0, 0.5]  # initial point
+x0 = [-3, -3]  # initial point
 a = 0.5
 EPS = 1.0e-1
 sq3 = np.sqrt(3)
@@ -112,7 +112,7 @@ for iter in range(100):
 
 # Objective function and minimization path plot
 nPoints = 100
-x1Lim, x2Lim = of.set_limits("Himmelblau")
+x1Lim, x2Lim = of.set_limits(ofname)
 x1list = np.linspace(x1Lim[0], x1Lim[1], nPoints)
 x2list = np.linspace(x2Lim[0], x2Lim[1], nPoints)
 X1, X2 = np.meshgrid(x1list, x2list)
