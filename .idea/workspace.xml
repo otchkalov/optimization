@@ -4,19 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="773b230f-360a-4a5f-92f7-065e7ddf73ea" name="Changes" comment="Minor fix">
+    <list default="true" id="773b230f-360a-4a5f-92f7-065e7ddf73ea" name="Changes" comment="Code refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/optimization.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/optimization.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gradient_calcul/gradient.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gradient_calcul/gradient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OneDim/GoldSection/gold_section.py" beforeDir="false" afterPath="$PROJECT_DIR$/OneDim/GoldSection/gold_section.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simplex_search/of.py" beforeDir="false" afterPath="$PROJECT_DIR$/Simplex_search/of.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simplex_search/simplex_search .py" beforeDir="false" afterPath="$PROJECT_DIR$/Simplex_search/simplex_search .py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OneDim/GoldSection/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/OneDim/GoldSection/plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OneDim/Other/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/OneDim/Other/plotter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
@@ -31,12 +36,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DCXJjrmTQ06KpaLNGMEeQFIw3a" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,7 +53,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oleksiichkalov/PycharmProjects/optimization&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oleksiichkalov/optimization&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -54,7 +61,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.gold_section">
     <configuration name="gold_section" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="optimization" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,14 +147,8 @@
       <workItem from="1660803698148" duration="258000" />
       <workItem from="1660804065596" duration="3615000" />
       <workItem from="1660851590760" duration="308000" />
-      <workItem from="1661001276673" duration="72000" />
-      <workItem from="1661410436709" duration="3305000" />
-      <workItem from="1661771507767" duration="828000" />
-      <workItem from="1661775228244" duration="3859000" />
-      <workItem from="1661882344898" duration="2759000" />
-      <workItem from="1662635971550" duration="3000000" />
-      <workItem from="1662911085364" duration="58000" />
-      <workItem from="1663166814585" duration="2035000" />
+      <workItem from="1661435728956" duration="307000" />
+      <workItem from="1666182799501" duration="2508000" />
     </task>
     <task id="LOCAL-00001" summary="Minor reformatting">
       <created>1660204842900</created>
@@ -170,14 +171,7 @@
       <option name="project" value="LOCAL" />
       <updated>1660491578727</updated>
     </task>
-    <task id="LOCAL-00004" summary="Minor fix">
-      <created>1661001324810</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1661001324810</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,24 +190,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Minor reformatting" />
-    <MESSAGE value="Code refactoring" />
     <MESSAGE value="Minor fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fix" />
+    <MESSAGE value="Code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/optimization$gradient.coverage" NAME="gradient Coverage Results" MODIFIED="1662636486321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
-    <SUITE FILE_PATH="coverage/optimization$fibonacci.coverage" NAME="fibonacci Coverage Results" MODIFIED="1660804275415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
-    <SUITE FILE_PATH="coverage/optimization$gold_section.coverage" NAME="gold_section Coverage Results" MODIFIED="1663171393608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
-    <SUITE FILE_PATH="coverage/optimization$dichotomy.coverage" NAME="dichotomy Coverage Results" MODIFIED="1661445292605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
-    <SUITE FILE_PATH="coverage/optimization$Nedler_Mid.coverage" NAME="Nedler_Mid Coverage Results" MODIFIED="1662641585503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simplex_search" />
-    <SUITE FILE_PATH="coverage/optimization$parallel.coverage" NAME="parallel Coverage Results" MODIFIED="1660464662588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Powell" />
-    <SUITE FILE_PATH="coverage/optimization$powell.coverage" NAME="powell Coverage Results" MODIFIED="1661410942876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
-    <SUITE FILE_PATH="coverage/optimization$cubic.coverage" NAME="cubic Coverage Results" MODIFIED="1661415028399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
     <SUITE FILE_PATH="coverage/Optimization$Nedler_Mid.coverage" NAME="Nedler_Mid Coverage Results" MODIFIED="1660298402704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simplex_search" />
+    <SUITE FILE_PATH="coverage/optimization$dichotomy.coverage" NAME="dichotomy Coverage Results" MODIFIED="1660810757944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
+    <SUITE FILE_PATH="coverage/Optimization$gold_section.coverage" NAME="gold_section Coverage Results" MODIFIED="1661435918707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
     <SUITE FILE_PATH="coverage/Optimization$plotter.coverage" NAME="plotter Coverage Results" MODIFIED="1660204269401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
-    <SUITE FILE_PATH="coverage/optimization$plotter.coverage" NAME="plotter Coverage Results" MODIFIED="1661445254563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
-    <SUITE FILE_PATH="coverage/Optimization$gradient.coverage" NAME="gradient Coverage Results" MODIFIED="1660297674036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
-    <SUITE FILE_PATH="coverage/optimization$quadratic.coverage" NAME="quadratic Coverage Results" MODIFIED="1661445342811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
-    <SUITE FILE_PATH="coverage/optimization$simplex_search_.coverage" NAME="simplex_search  Coverage Results" MODIFIED="1662641850506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simplex_search" />
+    <SUITE FILE_PATH="coverage/Optimization$quadratic.coverage" NAME="quadratic Coverage Results" MODIFIED="1661435981792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
+    <SUITE FILE_PATH="coverage/Optimization$cubic.coverage" NAME="cubic Coverage Results" MODIFIED="1661436030694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
+    <SUITE FILE_PATH="coverage/optimization$gold_section.coverage" NAME="gold_section Coverage Results" MODIFIED="1660851636889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
+    <SUITE FILE_PATH="coverage/optimization$gradient.coverage" NAME="gradient Coverage Results" MODIFIED="1660491392606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
+    <SUITE FILE_PATH="coverage/optimization$parallel.coverage" NAME="parallel Coverage Results" MODIFIED="1660464662588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Powell" />
+    <SUITE FILE_PATH="coverage/optimization$fibonacci.coverage" NAME="fibonacci Coverage Results" MODIFIED="1660804275415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/GoldSection" />
+    <SUITE FILE_PATH="coverage/Optimization$gradient.coverage" NAME="gradient Coverage Results" MODIFIED="1660561869416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
+    <SUITE FILE_PATH="coverage/Optimization$ftatcher_reeves.coverage" NAME="ftatcher_reeves Coverage Results" MODIFIED="1660566080177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ConjugateGradient" />
   </component>
 </project>
