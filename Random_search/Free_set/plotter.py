@@ -7,8 +7,10 @@ import matplotlib.pyplot as plt
 from IPython.display import clear_output
 
 
-# Plot the objective function
-def plot_graph(x1, x2, objFun, points, best_point):
+# Plot the objective function, calculated points,
+# Mark best point in red and the last point in the set by green
+# The last point as a rule represents the result of additional search
+def plot_graph_p1(x1, x2, objFun, points, best_point):
     clear_output(wait=True)
 
     fig, ax = plt.subplots(1, 1)
