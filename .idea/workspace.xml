@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="773b230f-360a-4a5f-92f7-065e7ddf73ea" name="Changes" comment="Random search">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Random_search/Free_set/random_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/Random_search/Free_set/random_search.py" afterDir="false" />
-    </list>
+    <list default="true" id="773b230f-360a-4a5f-92f7-065e7ddf73ea" name="Changes" comment="Random search" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1661410436709" duration="3305000" />
       <workItem from="1661771507767" duration="828000" />
       <workItem from="1661775228244" duration="3859000" />
-      <workItem from="1666296948928" duration="1466000" />
+      <workItem from="1666296948928" duration="1964000" />
     </task>
     <task id="LOCAL-00001" summary="Minor reformatting">
       <created>1660204842900</created>
@@ -181,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666292187811</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Random search">
+      <created>1666298905267</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666298905267</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +225,6 @@
     <SUITE FILE_PATH="coverage/Optimization$gradient.coverage" NAME="gradient Coverage Results" MODIFIED="1660297674036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Gradient_calcul" />
     <SUITE FILE_PATH="coverage/optimization$quadratic.coverage" NAME="quadratic Coverage Results" MODIFIED="1661445342811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OneDim/Other" />
     <SUITE FILE_PATH="coverage/optimization$simplex_search_.coverage" NAME="simplex_search  Coverage Results" MODIFIED="1662641850506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simplex_search" />
-    <SUITE FILE_PATH="coverage/optimization$random_search.coverage" NAME="random_search Coverage Results" MODIFIED="1666298098293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Random_search/Free_set" />
+    <SUITE FILE_PATH="coverage/optimization$random_search.coverage" NAME="random_search Coverage Results" MODIFIED="1666298802645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Random_search/Free_set" />
   </component>
 </project>
