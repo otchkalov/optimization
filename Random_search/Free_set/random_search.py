@@ -1,6 +1,7 @@
 import numpy as np
 from random import random
 from coordinate_descent import coordinate_descent
+import plotter
 
 
 def griewank(xx):
@@ -36,7 +37,7 @@ arg_abs_min = [0.0, 0.0]
 # width = [x_max[0] - x_min[0], x_max[1] - x_min[1]]
 # arg_abs_min = [420.9687, 420.9687]
 
-n_points = 1000
+n_points = 50
 
 list_of_args = [[0, 0] for i in range(n_points)]
 obj_fun = np.zeros(n_points)
@@ -61,29 +62,21 @@ print(f'Distance {distance:12.5g}')
 
 x_opt = coordinate_descent(griewank, list_of_args[best_point], 1.e-5)
 f_opt = griewank(x_opt)
+list_of_args.append(x_opt)
 
 print(f'Optimal solution found: [{x_opt[0]:12.5g}  {x_opt[1]:12.5g}] of = {f_opt:12.5g}')
 print(f'Total number of OF estimations: {number_of_estimations:5d}')
 print('-----------------------------------------------')
-#
-#
-# % Plot contours of the function and evaluated points
-# x1Grid = xmin(1):width/100:xmax(1);
-# x2Grid = xmin(2):width/100:xmax(2);
-# nPoints1 = length(x1Grid);
-# nPoints2 = length(x2Grid);
-# objFunGrid = zeros(nPoints1,nPoints2);
-#
-# for i=1:nPoints1
-#     for j=1:nPoints2
-#         objFunGrid(i,j) = feval(func, [x1Grid(i), x2Grid(j)]);
-#     end
-# end
-#
-# hold on
-# contour3(x2Grid, x1Grid, objFunGrid)
-# plot(arg(2,:), arg(1,:), 'LineStyle','none','Marker', 'o')
-# plot(arg(2,bestPoint), arg(1,bestPoint), 'LineStyle','none','Marker', 'o', 'Color', 'r')
-# plot(xOpt(2), xOpt(1), 'LineStyle','none','Marker', 'x', 'Color', 'r')
-# line([arg(2,bestPoint), xOpt(2)], [arg(1,bestPoint), xOpt(1)])
-# hold off
+
+
+# Plot contours of the function and evaluated points
+n_ticks = 100
+x1_list = np.linspace(x_min[0], x_max[0], n_ticks)
+x2_list = np.linspace(x_min[1], x_max[1], n_ticks)
+obj_fun_grid = [np.zeros(n_ticks) for i in range(n_ticks)]
+
+for i in range(n_ticks):
+    for j in range(n_ticks):
+        obj_fun_grid[i][j] = griewank([x1_list[i], x2_list[j]])
+
+plotter.plot_graph(x1_list, x2_list, obj_fun_grid, list_of_args, best_point)
