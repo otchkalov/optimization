@@ -3,7 +3,7 @@ import plotter
 import gold_section as gs
 
 def  func(x):
-# Calculate object function value
+    # Calculate object function value
 
     # Simple quadratic function
     # x1Lim = [-4, 4]

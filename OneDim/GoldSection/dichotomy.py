@@ -10,12 +10,13 @@ def func(arg):
     return fun
 
 
-plot_graph = False
+plot_graph = True
+sleep_time = 1
 
 xLeft = 0.5
 xRight = 2.0
 
-eps = 1.e-5
+eps = 1.e-2
 numOfCalc = 0
 maxIter = 20
 
@@ -41,7 +42,7 @@ fm = func(xm)
 print(f'{0:3d}  {x1:12.5f}  {xm:12.5f}  {x2:12.5f}  {f1:12.5f}  {fm:12.5f}  {f2:12.5f}  {length:12.5f}')
 if plot_graph:
     plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2, xm)
-    time.sleep(1)
+    time.sleep(sleep_time)
 
 for i in range(maxIter):
     if (f1 < fm) & (fm < f2):
@@ -68,7 +69,7 @@ for i in range(maxIter):
     print(f'{i+1:3d}  {x1:12.5f}  {xm:12.5f}  {x2:12.5f}  {f1:12.5f}  {fm:12.5f}  {f2:12.5f}  {length:12.5f}')
     if plot_graph:
         plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2, xm)
-        time.sleep(1)
+        time.sleep(sleep_time)
     if length < eps:
         break
 

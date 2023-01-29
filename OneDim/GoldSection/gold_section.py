@@ -12,9 +12,9 @@ def func(x):
 
 
 svenn_int = True
-plot_graph = False
+plot_graph = True
 
-eps = 1.e-5
+eps = 1.e-2
 maxIter = 20
 numOfCalc = 0
 
