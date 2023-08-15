@@ -5,7 +5,7 @@ import time
 
 def func(arg):
     global numOfCalc
-    fun = (arg - 1)**2
+    fun = (arg - 1) ** 2
     numOfCalc = numOfCalc + 1
     return fun
 
@@ -26,16 +26,14 @@ if plot_graph:
     y = func(x)
 
 print(f'xLeft = {xLeft:8.5f}    xRight = {xRight:8.5f}  length = {xRight - xLeft:8.5f} \n')
-
 print('  i           x_1           x_m           x_2         f_1         f_m           f_2        length')
 print('---------------------------------------------------------------------------------------------------')
 
-
 # Start dichotomy process
 length = xRight - xLeft
-x1 = xLeft + 0.25*length
-x2 = xLeft + 0.75*length
-xm = xLeft + 0.50*length
+x1 = xLeft + 0.25 * length
+x2 = xLeft + 0.75 * length
+xm = xLeft + 0.50 * length
 f1 = func(x1)
 f2 = func(x2)
 fm = func(xm)
@@ -61,8 +59,8 @@ for i in range(maxIter):
         xRight = x2
     # Note: we never have to recalculate OF value for new xm
     length = xRight - xLeft
-    x1 = xLeft + 0.25*length
-    x2 = xLeft + 0.75*length
+    x1 = xLeft + 0.25 * length
+    x2 = xLeft + 0.75 * length
     f1 = func(x1)
     f2 = func(x2)
 

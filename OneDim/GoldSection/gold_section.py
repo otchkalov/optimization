@@ -4,9 +4,9 @@ import plotter
 import svenn
 
 
-def func(x):
+def func(arg):
     global numOfCalc
-    fun = (x-1)**2
+    fun = (arg - 1) ** 2
     numOfCalc = numOfCalc + 1
     return fun
 
@@ -14,7 +14,7 @@ def func(x):
 svenn_int = True
 plot_graph = True
 
-eps = 1.e-2
+eps = 1.e-5
 maxIter = 20
 numOfCalc = 0
 
@@ -33,11 +33,6 @@ else:
 if xLeft == xRight:
     exit()
 
-if plot_graph:
-    # Generate point for objective function graph
-    x = np.linspace(xLeft, xRight, 100)
-    y = func(x)
-
 print(f'xLeft = {xLeft:12.5f}    xRight = {xRight:12.5f}  length = {xRight - xLeft:12.5f} \n')
 
 print('  i           x_1           x_2         f_1           f_2        length')
@@ -52,6 +47,9 @@ f1 = func(x1)
 f2 = func(x2)
 print(f'{0:3d}  {x1:12.5f}  {x2:12.5f}  {f1:12.5f}  {f2:12.5f}  {length:12.5f}')
 if plot_graph:
+    # Generate point for objective function graph
+    x = np.linspace(xLeft, xRight, 100)
+    y = func(x)
     plotter.plot_graph(x, y, func, xLeft, xRight, x1, x2)
     time.sleep(1)
 
@@ -91,5 +89,5 @@ for i in range(maxIter):
     if i == maxIter - 1:
         print(f'Warning: Required accuracy cannot be reached in {maxIter} steps')
     
-print ("\n ---------------------------------------------------------------------------------------\n")
-print (f"xOpt = {x1:9.5f}   Number of OF calculations for gold section: {numOfCalc}")
+print("\n ---------------------------------------------------------------------------------------\n")
+print(f"xOpt = {x1:9.5f}   Number of OF calculations for gold section: {numOfCalc}")
